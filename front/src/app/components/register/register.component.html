@@ -1,0 +1,92 @@
+<form class="example-form" (ngSubmit)="onSubmit()">
+
+    <h1>Registro</h1>
+
+    <p-stepper>
+        <p-stepperPanel header="Correo electrónico">
+            <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        
+                        <p-floatLabel>
+                            <input pInputText id="email" [formControl]="emailForm" required/>
+                            <label for="email">Correo electrónico</label>
+                        </p-floatLabel>
+
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-end">
+                    <p-button 
+                        label="Continuar" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" 
+                        [disabled]="!emailForm.valid"
+                    />
+
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Credenciales">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        
+                        <p-floatLabel>
+                            <input pInputText id="username" [formControl]="usernameForm" required/>
+                            <label for="username">Nombre de usuario</label>
+                        </p-floatLabel>
+
+                        <p-floatLabel>
+                            <p-password id="password" [formControl]="passwordForm" [toggleMask]="true"/>
+                            <label for="password">Contraseña</label>
+                        </p-floatLabel>
+
+                        <p-floatLabel>
+                            <p-password id="passwordRepeat" [formControl]="passwordRepeatForm" [toggleMask]="true"/>
+                            <label for="passwordRepeat">Repita la contraseña</label>
+                        </p-floatLabel>
+
+
+                        <p-dropdown 
+                        [options]="idTypes" 
+                        [formControl]="idTypeForm"
+                        optionLabel="name" 
+                        placeholder="Seleccione un tipo de identificación" />
+
+                        <p-floatLabel>
+                            <input pInputText type="number" id="idNumber" [formControl]="idForm" required/>
+                            <label for="idNumber">Número de identificación</label>
+                        </p-floatLabel>
+
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-between">
+                    <p-button 
+                        label="Regresar" 
+                        icon="pi pi-arrow-left" 
+                        (onClick)="prevCallback.emit()" />
+                    <p-button 
+                        label="Continuar" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" 
+                        [disabled]="!(usernameForm.valid && passwordForm.valid && passwordRepeatForm.valid && idTypeForm.valid && idForm.valid && samePassword)"
+                    />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Fin">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        
+                        Registro exitoso!
+
+                    </div>
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+    </p-stepper>
+
+</form>
