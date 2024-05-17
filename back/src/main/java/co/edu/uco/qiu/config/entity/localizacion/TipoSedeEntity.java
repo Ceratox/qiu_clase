@@ -6,24 +6,24 @@ import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.entity.CoreEntity;
 
-public final class PaisEntity extends CoreEntity {
+public final class TipoSedeEntity extends CoreEntity {
 	
 	private String nombre;
 	
-	public PaisEntity()
+	public TipoSedeEntity()
 	{
 		super();
 	}
 	
-	public PaisEntity( final UUID codigo, final String nombre )
+	public TipoSedeEntity( UUID codigo, String nombre )
 	{
-		setCodigo( codigo );
-		setNombre( nombre );
+		setCodigo(codigo);
+		setNombre(nombre);
 	}
 	
-	// Setters
+	// Setters 
 	
-	public final PaisEntity setNombre( String nombre )
+	public final TipoSedeEntity setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		

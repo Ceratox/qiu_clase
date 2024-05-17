@@ -2,10 +2,11 @@ package co.edu.uco.qiu.config.entity.localizacion;
 
 import java.util.UUID;
 
+import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.dto.CoreDTO;
+import co.edu.uco.qiu.config.entity.CoreEntity;
 
-public final class CiudadEntity extends CoreDTO {
+public final class CiudadEntity extends CoreEntity {
 	
 	private String nombre;
 	private DepartamentoEntity departamento;
@@ -26,12 +27,16 @@ public final class CiudadEntity extends CoreDTO {
 	
 	public final CiudadEntity setNombre( String nombre )
 	{
+		ExceptionHandler.checkDtoNullParameter(nombre);
+		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
 	}
 	
 	public final CiudadEntity setDepartamento( DepartamentoEntity departamento )
 	{
+		ExceptionHandler.checkDtoNullParameter(departamento);
+		
 		this.departamento = departamento;
 		return this;
 	}

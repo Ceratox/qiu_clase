@@ -7,19 +7,19 @@ import co.edu.uco.qiu.config.dto.CoreDTO;
 import co.edu.uco.qiu.config.dto.disponiblidad.DisponibilidadDTO;
 import co.edu.uco.qiu.config.dto.personas.UsuarioDTO;
 
-public final class BookingDTO extends CoreDTO {
+public final class ReservaDTO extends CoreDTO {
 	
 	private UsuarioDTO cliente;
 	private DisponibilidadDTO disponibilidad;
 	private TipoReservaDTO tipo;
 	private EstadoReservaDTO estado;
 	
-	public BookingDTO()
+	public ReservaDTO()
 	{
 		super();
 	}
 	
-	public BookingDTO(
+	public ReservaDTO(
 			
 			UUID codigo,
 			UsuarioDTO cliente,
@@ -38,7 +38,7 @@ public final class BookingDTO extends CoreDTO {
 	
 	// Setters
 	
-	public final BookingDTO setCliente( UsuarioDTO cliente )
+	public final ReservaDTO setCliente( UsuarioDTO cliente )
 	{
 		ExceptionHandler.checkDtoNullParameter(cliente);
 		
@@ -46,7 +46,7 @@ public final class BookingDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final BookingDTO setDisponibilidad( DisponibilidadDTO disponibilidad )
+	public final ReservaDTO setDisponibilidad( DisponibilidadDTO disponibilidad )
 	{
 		ExceptionHandler.checkDtoNullParameter(disponibilidad);
 		
@@ -54,7 +54,7 @@ public final class BookingDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final BookingDTO setTipo( TipoReservaDTO tipo )
+	public final ReservaDTO setTipo( TipoReservaDTO tipo )
 	{
 		ExceptionHandler.checkDtoNullParameter(tipo);
 		
@@ -62,7 +62,7 @@ public final class BookingDTO extends CoreDTO {
 		return this;
 	}
 	
-	public BookingDTO setEstado( EstadoReservaDTO estado )
+	public ReservaDTO setEstado( EstadoReservaDTO estado )
 	{
 		ExceptionHandler.checkDtoNullParameter(estado);
 		

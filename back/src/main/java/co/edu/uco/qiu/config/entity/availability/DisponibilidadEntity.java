@@ -1,32 +1,32 @@
-package co.edu.uco.qiu.config.dto.disponiblidad;
+package co.edu.uco.qiu.config.entity.availability;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
-import co.edu.uco.qiu.config.dto.CoreDTO;
-import co.edu.uco.qiu.config.dto.localizacion.ModuloDTO;
-import co.edu.uco.qiu.config.dto.personas.UsuarioDTO;
+import co.edu.uco.qiu.config.entity.CoreEntity;
+import co.edu.uco.qiu.config.entity.localizacion.ModuloEntity;
+import co.edu.uco.qiu.config.entity.personas.UsuarioEntity;
 
-public final class DisponibilidadDTO extends CoreDTO {
+public final class DisponibilidadEntity extends CoreEntity {
 	
-	private UsuarioDTO trabajador;
-	private ModuloDTO modulo;
+	private UsuarioEntity trabajador;
+	private ModuloEntity modulo;
 	private LocalDate fecha;
 	private LocalTime horaInicio;
 	private LocalTime horaFin;
 	
-	public DisponibilidadDTO()
+	public DisponibilidadEntity()
 	{
 		super();
 	}
 	
-	public DisponibilidadDTO(
+	public DisponibilidadEntity(
 			
 			UUID code,
-			UsuarioDTO trabajador,
-			ModuloDTO modulo,
+			UsuarioEntity trabajador,
+			ModuloEntity modulo,
 			LocalDate fecha,
 			LocalTime horaInicio,
 			LocalTime horaFin
@@ -43,7 +43,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	// Setters
 	
-	public final DisponibilidadDTO setTrabajador( UsuarioDTO trabajador )
+	public final DisponibilidadEntity setTrabajador( UsuarioEntity trabajador )
 	{
 		ExceptionHandler.checkDtoNullParameter(trabajador);
 		
@@ -51,7 +51,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final DisponibilidadDTO setModulo( ModuloDTO modulo )
+	public final DisponibilidadEntity setModulo( ModuloEntity modulo )
 	{
 		ExceptionHandler.checkDtoNullParameter(modulo);
 		
@@ -59,7 +59,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final DisponibilidadDTO setFecha( LocalDate fecha )
+	public final DisponibilidadEntity setFecha( LocalDate fecha )
 	{
 		ExceptionHandler.checkDtoNullParameter(fecha);
 		
@@ -67,7 +67,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final DisponibilidadDTO setHoraInicio( LocalTime hora )
+	public final DisponibilidadEntity setHoraInicio( LocalTime hora )
 	{
 		ExceptionHandler.checkDtoNullParameter(hora);
 		
@@ -75,7 +75,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final DisponibilidadDTO setHoraFin( LocalTime hora )
+	public final DisponibilidadEntity setHoraFin( LocalTime hora )
 	{
 		ExceptionHandler.checkDtoNullParameter(hora);
 		
@@ -85,9 +85,9 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	// Getters
 	
-	public final UsuarioDTO getTrabajador() {return this.trabajador;}
+	public final UsuarioEntity getTrabajador() {return this.trabajador;}
 	
-	public final ModuloDTO getModulo() {return this.modulo;}
+	public final ModuloEntity getModulo() {return this.modulo;}
 	
 	public final LocalDate getFecha() {return this.fecha;}
 	

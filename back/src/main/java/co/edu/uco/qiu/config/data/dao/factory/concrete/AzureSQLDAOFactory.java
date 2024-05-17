@@ -8,7 +8,7 @@ import co.edu.uco.qiu.config.data.dao.entity.CiudadDAO;
 import co.edu.uco.qiu.config.data.dao.entity.DepartamentoDAO;
 import co.edu.uco.qiu.config.data.dao.entity.PaisDAO;
 import co.edu.uco.qiu.config.data.dao.entity.concrete.SqlConnection;
-import co.edu.uco.qiu.config.data.dao.entity.concrete.azuresql.PaisAzureSqlDAO;
+import co.edu.uco.qiu.config.data.dao.entity.concrete.azuresql.localizacion.PaisAzureSqlDAO;
 import co.edu.uco.qiu.config.data.dao.factory.DAOFactory;
 
 public final class AzureSQLDAOFactory extends SqlConnection implements DAOFactory {

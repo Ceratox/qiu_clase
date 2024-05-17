@@ -1,21 +1,21 @@
-package co.edu.uco.qiu.config.dto.location;
+package co.edu.uco.qiu.config.entity.reservas;
 
 import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.dto.CoreDTO;
+import co.edu.uco.qiu.config.entity.CoreEntity;
 
-public final class TipoModuloDTO extends CoreDTO {
+public final class EstadoReservaEntity extends CoreEntity {
 	
 	private String nombre;
 	
-	public TipoModuloDTO()
+	public EstadoReservaEntity()
 	{
 		super();
 	}
 	
-	public TipoModuloDTO( UUID codigo, String nombre )
+	public EstadoReservaEntity( UUID codigo, String nombre )
 	{
 		setCodigo(codigo);
 		setNombre(nombre);
@@ -23,7 +23,7 @@ public final class TipoModuloDTO extends CoreDTO {
 	
 	// Setters 
 	
-	public final TipoModuloDTO setNombre( String nombre )
+	public final EstadoReservaEntity setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		

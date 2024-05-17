@@ -1,4 +1,4 @@
-package co.edu.uco.qiu.config.entity.localizacion;
+package co.edu.uco.qiu.config.entity.reservas;
 
 import java.util.UUID;
 
@@ -6,24 +6,24 @@ import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.entity.CoreEntity;
 
-public final class PaisEntity extends CoreEntity {
+public final class TipoReservaEntity extends CoreEntity {
 	
 	private String nombre;
 	
-	public PaisEntity()
+	public TipoReservaEntity()
 	{
 		super();
 	}
 	
-	public PaisEntity( final UUID codigo, final String nombre )
+	public TipoReservaEntity( UUID codigo, String nombre )
 	{
-		setCodigo( codigo );
-		setNombre( nombre );
+		setCodigo(codigo);
+		setNombre(nombre);
 	}
 	
-	// Setters
+	// Setters 
 	
-	public final PaisEntity setNombre( String nombre )
+	public final TipoReservaEntity setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		

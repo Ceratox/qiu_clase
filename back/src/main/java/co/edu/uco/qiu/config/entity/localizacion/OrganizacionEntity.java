@@ -1,35 +1,35 @@
-package co.edu.uco.qiu.config.dto.location;
+package co.edu.uco.qiu.config.entity.localizacion;
 
 import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.dto.CoreDTO;
-import co.edu.uco.qiu.config.dto.personas.UsuarioDTO;
+import co.edu.uco.qiu.config.entity.CoreEntity;
+import co.edu.uco.qiu.config.entity.personas.UsuarioEntity;
 
-public final class OrganizacionDTO extends CoreDTO {
+public final class OrganizacionEntity extends CoreEntity {
 
-	private TipoIdOrganizacionDTO tipoId;
+	private TipoIdOrganizacionEntity tipoId;
 	private int identificacion;
 	private String nombre;
 	private String descripcion;
-	private UsuarioDTO administrador;
+	private UsuarioEntity administrador;
 	
 	private boolean verificada;
 	
-	public OrganizacionDTO()
+	public OrganizacionEntity()
 	{
 		super();
 	}
 	
-	public OrganizacionDTO(
+	public OrganizacionEntity(
 			
 			UUID codigo,
-			TipoIdOrganizacionDTO tipoId,
+			TipoIdOrganizacionEntity tipoId,
 			int identificacion,
 			String nombre,
 			String descripcion,
-			UsuarioDTO administrador,
+			UsuarioEntity administrador,
 			boolean verificada
 			
 	)
@@ -45,7 +45,7 @@ public final class OrganizacionDTO extends CoreDTO {
 	
 	// Setters
 	
-	public final OrganizacionDTO setTipoId( TipoIdOrganizacionDTO tipoId )
+	public final OrganizacionEntity setTipoId( TipoIdOrganizacionEntity tipoId )
 	{
 		ExceptionHandler.checkDtoNullParameter(tipoId);
 		
@@ -53,13 +53,13 @@ public final class OrganizacionDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final OrganizacionDTO setIdentificacion( int identificacion )
+	public final OrganizacionEntity setIdentificacion( int identificacion )
 	{
 		this.identificacion = identificacion;
 		return this;
 	}
 	
-	public final OrganizacionDTO setNombre( String nombre )
+	public final OrganizacionEntity setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		
@@ -67,7 +67,7 @@ public final class OrganizacionDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final OrganizacionDTO setDescripcion( String descripcion )
+	public final OrganizacionEntity setDescripcion( String descripcion )
 	{
 		ExceptionHandler.checkDtoNullParameter(descripcion);
 		
@@ -75,7 +75,7 @@ public final class OrganizacionDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final OrganizacionDTO setAdministrador( UsuarioDTO administrador )
+	public final OrganizacionEntity setAdministrador( UsuarioEntity administrador )
 	{
 		ExceptionHandler.checkDtoNullParameter(administrador);
 		
@@ -83,7 +83,7 @@ public final class OrganizacionDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final OrganizacionDTO setVerificada( boolean verificada )
+	public final OrganizacionEntity setVerificada( boolean verificada )
 	{
 		this.verificada = verificada;
 		return this;
@@ -91,7 +91,7 @@ public final class OrganizacionDTO extends CoreDTO {
 	
 	// Getters
 	
-	public final TipoIdOrganizacionDTO getTipoId() {return this.tipoId;}
+	public final TipoIdOrganizacionEntity getTipoId() {return this.tipoId;}
 	
 	public final int getIdentificacion() {return this.identificacion;}
 	
@@ -99,7 +99,7 @@ public final class OrganizacionDTO extends CoreDTO {
 	
 	public final String getDescripcion() {return this.descripcion;}
 	
-	public final UsuarioDTO getAdministrador() {return this.administrador;}
+	public final UsuarioEntity getAdministrador() {return this.administrador;}
 	
 	public final boolean estaVerificada() {return this.verificada;}
 }

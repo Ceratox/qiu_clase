@@ -1,29 +1,29 @@
-package co.edu.uco.qiu.config.entity.localizacion;
+package co.edu.uco.qiu.config.dto.localizacion;
 
 import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.entity.CoreEntity;
+import co.edu.uco.qiu.config.dto.CoreDTO;
 
-public final class PaisEntity extends CoreEntity {
-	
+public final class TipoIdOrganizacionDTO extends CoreDTO {
+
 	private String nombre;
 	
-	public PaisEntity()
+	public TipoIdOrganizacionDTO()
 	{
 		super();
 	}
 	
-	public PaisEntity( final UUID codigo, final String nombre )
+	public TipoIdOrganizacionDTO( UUID newCode, String nombre )
 	{
-		setCodigo( codigo );
-		setNombre( nombre );
+		setCodigo(newCode);
+		setNombre(nombre);
 	}
 	
-	// Setters
+	// Setters 
 	
-	public final PaisEntity setNombre( String nombre )
+	public final TipoIdOrganizacionDTO setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		
@@ -34,5 +34,4 @@ public final class PaisEntity extends CoreEntity {
 	// Getters
 	
 	public final String getNombre() {return this.nombre;}
-
 }

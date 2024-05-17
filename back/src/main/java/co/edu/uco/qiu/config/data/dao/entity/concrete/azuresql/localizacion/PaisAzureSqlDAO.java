@@ -1,38 +1,63 @@
-package co.edu.uco.qiu.config.data.dao.entity.concrete.azuresql;
+package co.edu.uco.qiu.config.data.dao.entity.concrete.azuresql.localizacion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.exceptions.custom.DataQIUException;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.data.dao.entity.CiudadDAO;
+import co.edu.uco.qiu.config.data.dao.entity.PaisDAO;
 import co.edu.uco.qiu.config.data.dao.entity.concrete.SqlConnection;
-import co.edu.uco.qiu.config.entity.localizacion.CiudadEntity;
+import co.edu.uco.qiu.config.entity.localizacion.PaisEntity;
 
-public final class CiudadAzureSqlDAO extends SqlConnection implements CiudadDAO {
-
-	public CiudadAzureSqlDAO(final Connection connection) {
-		
+public class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
+	
+	private static final String TABLE = "pais";
+	private static final String[] UNIQUE_FIELDS = {"id", "nombre"};
+	
+	public PaisAzureSqlDAO(Connection connection)
+	{
 		super(connection);
 	}
 
 	@Override
-	public final void create(final CiudadEntity data) {
+	public List<PaisEntity> retrieve(PaisEntity data) {
 		
 		final StringBuilder sqlSentence = new StringBuilder();
-		sqlSentence.append("INSERT INTO ciudad(codigo, nombre, departamento) ");
-		sqlSentence.append("SELECT ?, ?, ?");
+		sqlSentence.append("SELECT * FROM " + TABLE + " WHERE ");
+		
+		for (int i=0; i<UNIQUE_FIELDS.length; i++)
+		{
+			sqlSentence.append(UNIQUE_FIELDS[i] + " = ?");
+			if (i < UNIQUE_FIELDS.length - 1)
+			{
+				sqlSentence.append(" AND ");
+			}
+		}
 		
 		try (final PreparedStatement preparedSqlStatement = getConnection().prepareStatement(sqlSentence.toString()))
 		{
 			preparedSqlStatement.setObject(1, data.getCodigo());
 			preparedSqlStatement.setString(2, data.getNombre());
-			preparedSqlStatement.setObject(3, data.getDepartamento().getCodigo());
 			
-			preparedSqlStatement.executeUpdate(); // La ciudad queda insertada
+			ResultSet resultSet = preparedSqlStatement.executeQuery();
+			List<PaisEntity> paises = new ArrayList<>();
+			
+			while (resultSet.next())
+			{
+				paises.add( new PaisEntity( 
+						
+					UUID.fromString(Integer.toString(resultSet.getInt("id"))),
+					resultSet.getString("nombre")
+						
+				));
+			}
+			
+			return paises;
 		}
 		catch (SQLException exception)
 		
@@ -50,23 +75,4 @@ public final class CiudadAzureSqlDAO extends SqlConnection implements CiudadDAO 
 			throw new DataQIUException(mensajeTecnico, mensajeUsuario, exception);
 		}
 	}
-
-	@Override
-	public List<CiudadEntity> retrieve(CiudadEntity data) {
-		
-		return null;
-	}
-
-	@Override
-	public void update(CiudadEntity data) {
-		
-		
-	}
-
-	@Override
-	public void delete(UUID codigo) {
-				
-		
-	}
-
 }

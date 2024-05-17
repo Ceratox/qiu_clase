@@ -1,4 +1,4 @@
-package co.edu.uco.qiu.config.dto.location;
+package co.edu.uco.qiu.config.dto.localizacion;
 
 import java.util.UUID;
 
@@ -6,24 +6,24 @@ import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
-public final class TipoIdOrganizacionDTO extends CoreDTO {
-
+public final class TipoModuloDTO extends CoreDTO {
+	
 	private String nombre;
 	
-	public TipoIdOrganizacionDTO()
+	public TipoModuloDTO()
 	{
 		super();
 	}
 	
-	public TipoIdOrganizacionDTO( UUID newCode, String nombre )
+	public TipoModuloDTO( UUID codigo, String nombre )
 	{
-		setCodigo(newCode);
+		setCodigo(codigo);
 		setNombre(nombre);
 	}
 	
 	// Setters 
 	
-	public final TipoIdOrganizacionDTO setNombre( String nombre )
+	public final TipoModuloDTO setNombre( String nombre )
 	{
 		ExceptionHandler.checkDtoNullParameter(nombre);
 		
@@ -34,4 +34,5 @@ public final class TipoIdOrganizacionDTO extends CoreDTO {
 	// Getters
 	
 	public final String getNombre() {return this.nombre;}
+
 }
