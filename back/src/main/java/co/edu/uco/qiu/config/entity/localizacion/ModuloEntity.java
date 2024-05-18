@@ -36,7 +36,7 @@ public final class ModuloEntity extends CoreEntity {
 	
 	public final ModuloEntity setSede( SedeEntity sede )
 	{
-		ExceptionHandler.checkDtoNullParameter(sede);
+		ExceptionHandler.checkDTONullParameter(sede);
 		
 		this.sede = sede;
 		return this;
@@ -44,7 +44,7 @@ public final class ModuloEntity extends CoreEntity {
 	
 	public final ModuloEntity setTipo( TipoModuloEntity tipo )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipo);
+		ExceptionHandler.checkDTONullParameter(tipo);
 		
 		this.tipo = tipo;
 		return this;
@@ -52,7 +52,7 @@ public final class ModuloEntity extends CoreEntity {
 	
 	public final ModuloEntity setIndicativo( String indicativo )
 	{
-		ExceptionHandler.checkDtoNullParameter(indicativo);
+		ExceptionHandler.checkDTONullParameter(indicativo);
 		
 		this.indicativo = StringTool.applyTrim(indicativo);
 		return this;

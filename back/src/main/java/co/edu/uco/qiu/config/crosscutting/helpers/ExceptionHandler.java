@@ -6,7 +6,7 @@ public final class ExceptionHandler {
 	
 	private ExceptionHandler() {}
 	
-	public static <O> void checkDtoNullParameter( O parameter )
+	public static <O> void checkDTONullParameter( O parameter )
 	{
 		if (parameter == null)
 		{

@@ -2,6 +2,8 @@ package co.edu.uco.qiu.config.entity;
 
 import java.util.UUID;
 
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
+
 public class CoreEntity {
 	
 	private UUID codigo;
@@ -10,7 +12,7 @@ public class CoreEntity {
 	
 	public final CoreEntity setCodigo( UUID newCode )
 	{
-		this.codigo = newCode;
+		this.codigo = UUIDHelper.getDefault(newCode, UUIDHelper.getDefault());
 		return this;
 	}
 	

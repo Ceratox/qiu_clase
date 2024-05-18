@@ -73,7 +73,7 @@ public final class UsuarioEntity extends CoreEntity {
 
 	public final UsuarioEntity setTipo( TipoUsuarioEntity tipo )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipo);
+		ExceptionHandler.checkDTONullParameter(tipo);
 		
 		this.tipo = tipo;
 		return this;
@@ -81,7 +81,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setTipoId( TipoIdUsuarioEntity tipoId )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipoId);
+		ExceptionHandler.checkDTONullParameter(tipoId);
 		
 		this.tipoId = tipoId;
 		return this;
@@ -100,7 +100,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -108,7 +108,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setDireccion( String direccion )
 	{
-		ExceptionHandler.checkDtoNullParameter(direccion);
+		ExceptionHandler.checkDTONullParameter(direccion);
 		
 		this.direccion = StringTool.applyTrim(direccion);
 		return this;
@@ -116,7 +116,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setTelefono( int telefono )
 	{
-		ExceptionHandler.checkDtoNullParameter(telefono);
+		ExceptionHandler.checkDTONullParameter(telefono);
 		
 		this.telefono = telefono;
 		return this;
@@ -124,7 +124,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setEmail( String email )
 	{
-		ExceptionHandler.checkDtoNullParameter(email);
+		ExceptionHandler.checkDTONullParameter(email);
 		
 		this.email = StringTool.applyTrim(email);
 		return this;
@@ -132,7 +132,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setFechaRegistro( Date fecha )
 	{
-		ExceptionHandler.checkDtoNullParameter(fecha);
+		ExceptionHandler.checkDTONullParameter(fecha);
 		
 		this.fechaRegistro = fecha;
 		return this;
@@ -146,7 +146,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setNombreUsuario( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombreUsuario = StringTool.applyTrim(nombre);
 		return this;
@@ -154,7 +154,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public final UsuarioEntity setContrasena( String contrasena )
 	{
-		ExceptionHandler.checkDtoNullParameter(contrasena);
+		ExceptionHandler.checkDTONullParameter(contrasena);
 		
 		this.contrasena = StringTool.applyTrim(contrasena);
 		return this;
@@ -162,7 +162,7 @@ public final class UsuarioEntity extends CoreEntity {
 	
 	public UsuarioEntity setjefe(UsuarioEntity jefe) {
 		
-		ExceptionHandler.checkDtoNullParameter(jefe);
+		ExceptionHandler.checkDTONullParameter(jefe);
 		
 		this.jefe = jefe;
 		return this;

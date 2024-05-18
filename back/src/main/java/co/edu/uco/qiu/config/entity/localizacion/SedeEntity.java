@@ -49,7 +49,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setOrganizacion( OrganizacionEntity organizacion )
 	{
-		ExceptionHandler.checkDtoNullParameter(organizacion);
+		ExceptionHandler.checkDTONullParameter(organizacion);
 		
 		this.organizacion = organizacion;
 		return this;
@@ -57,7 +57,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -65,7 +65,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setCiudad( CiudadEntity ciudad )
 	{
-		ExceptionHandler.checkDtoNullParameter(ciudad);
+		ExceptionHandler.checkDTONullParameter(ciudad);
 		
 		this.ciudad = ciudad;
 		return this;
@@ -73,7 +73,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setDireccion( String direccion )
 	{
-		ExceptionHandler.checkDtoNullParameter(direccion);
+		ExceptionHandler.checkDTONullParameter(direccion);
 		
 		this.direccion = StringTool.applyTrim(direccion);
 		return this;
@@ -81,7 +81,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setTelefono( int telefono )
 	{
-		ExceptionHandler.checkDtoNullParameter(telefono);
+		ExceptionHandler.checkDTONullParameter(telefono);
 		
 		this.telefono = telefono;
 		return this;
@@ -89,7 +89,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setEmail( String email )
 	{
-		ExceptionHandler.checkDtoNullParameter(email);
+		ExceptionHandler.checkDTONullParameter(email);
 		
 		this.email = StringTool.applyTrim(email);
 		return this;
@@ -97,7 +97,7 @@ public final class SedeEntity extends CoreEntity {
 	
 	public final SedeEntity setAdministrador( UsuarioEntity administrador )
 	{
-		ExceptionHandler.checkDtoNullParameter(administrador);
+		ExceptionHandler.checkDTONullParameter(administrador);
 		
 		this.administrador = administrador;
 		return this;

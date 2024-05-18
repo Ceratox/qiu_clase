@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class StringTool {
 
-	private static final String EMPTY = "";
+	public static final String EMPTY = "";
 	public static final String UNDERSCORE = "_";
 	
 	private StringTool()

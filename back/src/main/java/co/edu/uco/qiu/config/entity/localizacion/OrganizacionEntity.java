@@ -47,7 +47,7 @@ public final class OrganizacionEntity extends CoreEntity {
 	
 	public final OrganizacionEntity setTipoId( TipoIdOrganizacionEntity tipoId )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipoId);
+		ExceptionHandler.checkDTONullParameter(tipoId);
 		
 		this.tipoId = tipoId;
 		return this;
@@ -61,7 +61,7 @@ public final class OrganizacionEntity extends CoreEntity {
 	
 	public final OrganizacionEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -69,7 +69,7 @@ public final class OrganizacionEntity extends CoreEntity {
 	
 	public final OrganizacionEntity setDescripcion( String descripcion )
 	{
-		ExceptionHandler.checkDtoNullParameter(descripcion);
+		ExceptionHandler.checkDTONullParameter(descripcion);
 		
 		this.descripcion = StringTool.applyTrim(descripcion);
 		return this;
@@ -77,7 +77,7 @@ public final class OrganizacionEntity extends CoreEntity {
 	
 	public final OrganizacionEntity setAdministrador( UsuarioEntity administrador )
 	{
-		ExceptionHandler.checkDtoNullParameter(administrador);
+		ExceptionHandler.checkDTONullParameter(administrador);
 		
 		this.administrador = administrador;
 		return this;

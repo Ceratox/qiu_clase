@@ -27,7 +27,7 @@ public final class CiudadDTO extends CoreDTO {
 	
 	public final CiudadDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -35,7 +35,7 @@ public final class CiudadDTO extends CoreDTO {
 	
 	public final CiudadDTO setDepartamento( DepartamentoDTO departamento )
 	{
-		ExceptionHandler.checkDtoNullParameter(departamento);
+		ExceptionHandler.checkDTONullParameter(departamento);
 		
 		this.departamento = departamento;
 		return this;

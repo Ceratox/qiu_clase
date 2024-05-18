@@ -25,7 +25,7 @@ public final class TipoReservaEntity extends CoreEntity {
 	
 	public final TipoReservaEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

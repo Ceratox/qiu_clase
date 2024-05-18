@@ -40,7 +40,7 @@ public final class ReservaEntity extends CoreEntity {
 	
 	public final ReservaEntity setCliente( UsuarioEntity cliente )
 	{
-		ExceptionHandler.checkDtoNullParameter(cliente);
+		ExceptionHandler.checkDTONullParameter(cliente);
 		
 		this.cliente = cliente;
 		return this;
@@ -48,7 +48,7 @@ public final class ReservaEntity extends CoreEntity {
 	
 	public final ReservaEntity setDisponibilidad( DisponibilidadEntity disponibilidad )
 	{
-		ExceptionHandler.checkDtoNullParameter(disponibilidad);
+		ExceptionHandler.checkDTONullParameter(disponibilidad);
 		
 		this.disponibilidad = disponibilidad;
 		return this;
@@ -56,7 +56,7 @@ public final class ReservaEntity extends CoreEntity {
 	
 	public final ReservaEntity setTipo( TipoReservaEntity tipo )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipo);
+		ExceptionHandler.checkDTONullParameter(tipo);
 		
 		this.tipo = tipo;
 		return this;
@@ -64,7 +64,7 @@ public final class ReservaEntity extends CoreEntity {
 	
 	public ReservaEntity setEstado( EstadoReservaEntity estado )
 	{
-		ExceptionHandler.checkDtoNullParameter(estado);
+		ExceptionHandler.checkDTONullParameter(estado);
 		
 		this.estado = estado;
 		return this;

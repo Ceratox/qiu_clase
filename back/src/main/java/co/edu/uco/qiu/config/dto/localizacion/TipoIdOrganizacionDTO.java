@@ -25,7 +25,7 @@ public final class TipoIdOrganizacionDTO extends CoreDTO {
 	
 	public final TipoIdOrganizacionDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

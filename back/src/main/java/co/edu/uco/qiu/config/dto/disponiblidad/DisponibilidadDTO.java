@@ -45,7 +45,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	public final DisponibilidadDTO setTrabajador( UsuarioDTO trabajador )
 	{
-		ExceptionHandler.checkDtoNullParameter(trabajador);
+		ExceptionHandler.checkDTONullParameter(trabajador);
 		
 		this.trabajador = trabajador;
 		return this;
@@ -53,7 +53,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	public final DisponibilidadDTO setModulo( ModuloDTO modulo )
 	{
-		ExceptionHandler.checkDtoNullParameter(modulo);
+		ExceptionHandler.checkDTONullParameter(modulo);
 		
 		this.modulo = modulo;
 		return this;
@@ -61,7 +61,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	public final DisponibilidadDTO setFecha( LocalDate fecha )
 	{
-		ExceptionHandler.checkDtoNullParameter(fecha);
+		ExceptionHandler.checkDTONullParameter(fecha);
 		
 		this.fecha = fecha;
 		return this;
@@ -69,7 +69,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	public final DisponibilidadDTO setHoraInicio( LocalTime hora )
 	{
-		ExceptionHandler.checkDtoNullParameter(hora);
+		ExceptionHandler.checkDTONullParameter(hora);
 		
 		this.horaInicio = hora;
 		return this;
@@ -77,7 +77,7 @@ public final class DisponibilidadDTO extends CoreDTO {
 	
 	public final DisponibilidadDTO setHoraFin( LocalTime hora )
 	{
-		ExceptionHandler.checkDtoNullParameter(hora);
+		ExceptionHandler.checkDTONullParameter(hora);
 		
 		this.horaFin = hora;
 		return this;

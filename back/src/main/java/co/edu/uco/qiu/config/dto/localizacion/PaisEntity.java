@@ -6,16 +6,16 @@ import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
-public final class PaisDTO extends CoreDTO {
+public final class PaisEntity extends CoreDTO {
 	
 	private String nombre;
 	
-	public PaisDTO()
+	public PaisEntity()
 	{
 		super();
 	}
 	
-	public PaisDTO( final UUID codigo, final String nombre )
+	public PaisEntity( final UUID codigo, final String nombre )
 	{
 		setCodigo( codigo );
 		setNombre( nombre );
@@ -23,9 +23,9 @@ public final class PaisDTO extends CoreDTO {
 	
 	// Setters
 	
-	public final PaisDTO setNombre( String nombre )
+	public final PaisEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

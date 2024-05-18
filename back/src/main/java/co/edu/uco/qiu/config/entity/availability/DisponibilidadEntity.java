@@ -45,7 +45,7 @@ public final class DisponibilidadEntity extends CoreEntity {
 	
 	public final DisponibilidadEntity setTrabajador( UsuarioEntity trabajador )
 	{
-		ExceptionHandler.checkDtoNullParameter(trabajador);
+		ExceptionHandler.checkDTONullParameter(trabajador);
 		
 		this.trabajador = trabajador;
 		return this;
@@ -53,7 +53,7 @@ public final class DisponibilidadEntity extends CoreEntity {
 	
 	public final DisponibilidadEntity setModulo( ModuloEntity modulo )
 	{
-		ExceptionHandler.checkDtoNullParameter(modulo);
+		ExceptionHandler.checkDTONullParameter(modulo);
 		
 		this.modulo = modulo;
 		return this;
@@ -61,7 +61,7 @@ public final class DisponibilidadEntity extends CoreEntity {
 	
 	public final DisponibilidadEntity setFecha( LocalDate fecha )
 	{
-		ExceptionHandler.checkDtoNullParameter(fecha);
+		ExceptionHandler.checkDTONullParameter(fecha);
 		
 		this.fecha = fecha;
 		return this;
@@ -69,7 +69,7 @@ public final class DisponibilidadEntity extends CoreEntity {
 	
 	public final DisponibilidadEntity setHoraInicio( LocalTime hora )
 	{
-		ExceptionHandler.checkDtoNullParameter(hora);
+		ExceptionHandler.checkDTONullParameter(hora);
 		
 		this.horaInicio = hora;
 		return this;
@@ -77,7 +77,7 @@ public final class DisponibilidadEntity extends CoreEntity {
 	
 	public final DisponibilidadEntity setHoraFin( LocalTime hora )
 	{
-		ExceptionHandler.checkDtoNullParameter(hora);
+		ExceptionHandler.checkDTONullParameter(hora);
 		
 		this.horaFin = hora;
 		return this;

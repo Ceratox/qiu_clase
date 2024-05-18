@@ -25,7 +25,7 @@ public final class PaisEntity extends CoreEntity {
 	
 	public final PaisEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

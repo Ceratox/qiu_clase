@@ -36,7 +36,7 @@ public final class ModuloDTO extends CoreDTO {
 	
 	public final ModuloDTO setSede( SedeDTO sede )
 	{
-		ExceptionHandler.checkDtoNullParameter(sede);
+		ExceptionHandler.checkDTONullParameter(sede);
 		
 		this.sede = sede;
 		return this;
@@ -44,7 +44,7 @@ public final class ModuloDTO extends CoreDTO {
 	
 	public final ModuloDTO setTipo( TipoModuloDTO tipo )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipo);
+		ExceptionHandler.checkDTONullParameter(tipo);
 		
 		this.tipo = tipo;
 		return this;
@@ -52,7 +52,7 @@ public final class ModuloDTO extends CoreDTO {
 	
 	public final ModuloDTO setIndicativo( String indicativo )
 	{
-		ExceptionHandler.checkDtoNullParameter(indicativo);
+		ExceptionHandler.checkDTONullParameter(indicativo);
 		
 		this.indicativo = StringTool.applyTrim(indicativo);
 		return this;

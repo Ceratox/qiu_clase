@@ -25,7 +25,7 @@ public final class TipoModuloDTO extends CoreDTO {
 	
 	public final TipoModuloDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

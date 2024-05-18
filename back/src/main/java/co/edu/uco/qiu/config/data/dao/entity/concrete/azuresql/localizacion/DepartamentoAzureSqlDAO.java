@@ -55,12 +55,10 @@ public class DepartamentoAzureSqlDAO extends SqlConnection implements Departamen
 						
 					UUID.fromString(Integer.toString(resultSet.getInt("id"))),
 					resultSet.getString("nombre"),
-					new PaisEntity()
+					(PaisEntity)resultSet.getObject("pais")
 					
 				));
 			}
-			
-			
 		}
 		catch (SQLException exception)
 		

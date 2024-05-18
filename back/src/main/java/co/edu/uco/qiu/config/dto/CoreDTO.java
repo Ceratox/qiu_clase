@@ -2,6 +2,8 @@ package co.edu.uco.qiu.config.dto;
 
 import java.util.UUID;
 
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
+
 public class CoreDTO {
 	
 	private UUID codigo;
@@ -10,7 +12,7 @@ public class CoreDTO {
 	
 	public final CoreDTO setCodigo( UUID newCode )
 	{
-		this.codigo = newCode;
+		this.codigo = UUIDHelper.getDefault(newCode, UUIDHelper.getDefault());
 		return this;
 	}
 	

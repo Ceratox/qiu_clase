@@ -49,7 +49,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setOrganizacion( OrganizacionDTO organizacion )
 	{
-		ExceptionHandler.checkDtoNullParameter(organizacion);
+		ExceptionHandler.checkDTONullParameter(organizacion);
 		
 		this.organizacion = organizacion;
 		return this;
@@ -57,7 +57,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -65,7 +65,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setCiudad( CiudadDTO ciudad )
 	{
-		ExceptionHandler.checkDtoNullParameter(ciudad);
+		ExceptionHandler.checkDTONullParameter(ciudad);
 		
 		this.ciudad = ciudad;
 		return this;
@@ -73,7 +73,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setDireccion( String direccion )
 	{
-		ExceptionHandler.checkDtoNullParameter(direccion);
+		ExceptionHandler.checkDTONullParameter(direccion);
 		
 		this.direccion = StringTool.applyTrim(direccion);
 		return this;
@@ -81,7 +81,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setTelefono( int telefono )
 	{
-		ExceptionHandler.checkDtoNullParameter(telefono);
+		ExceptionHandler.checkDTONullParameter(telefono);
 		
 		this.telefono = telefono;
 		return this;
@@ -89,7 +89,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setEmail( String email )
 	{
-		ExceptionHandler.checkDtoNullParameter(email);
+		ExceptionHandler.checkDTONullParameter(email);
 		
 		this.email = StringTool.applyTrim(email);
 		return this;
@@ -97,7 +97,7 @@ public final class SedeDTO extends CoreDTO {
 	
 	public final SedeDTO setAdministrador( UsuarioDTO administrador )
 	{
-		ExceptionHandler.checkDtoNullParameter(administrador);
+		ExceptionHandler.checkDTONullParameter(administrador);
 		
 		this.administrador = administrador;
 		return this;

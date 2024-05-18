@@ -27,7 +27,7 @@ public final class DepartamentoEntity extends CoreEntity {
 	
 	public final DepartamentoEntity setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
@@ -35,7 +35,7 @@ public final class DepartamentoEntity extends CoreEntity {
 	
 	public final DepartamentoEntity setPais( PaisEntity pais )
 	{
-		ExceptionHandler.checkDtoNullParameter(pais);
+		ExceptionHandler.checkDTONullParameter(pais);
 		
 		this.pais = pais;
 		return this;

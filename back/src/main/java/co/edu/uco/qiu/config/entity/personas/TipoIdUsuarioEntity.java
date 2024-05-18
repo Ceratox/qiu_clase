@@ -25,7 +25,7 @@ public final class TipoIdUsuarioEntity extends CoreEntity {
 	
 	public final TipoIdUsuarioEntity setNombre( String newNombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(newNombre);
+		ExceptionHandler.checkDTONullParameter(newNombre);
 		
 		this.nombre = StringTool.applyTrim(newNombre);
 		return this;

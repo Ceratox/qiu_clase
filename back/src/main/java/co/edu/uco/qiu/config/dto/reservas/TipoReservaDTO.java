@@ -25,7 +25,7 @@ public final class TipoReservaDTO extends CoreDTO {
 	
 	public final TipoReservaDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;

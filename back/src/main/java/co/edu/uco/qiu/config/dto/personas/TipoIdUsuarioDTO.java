@@ -25,7 +25,7 @@ public final class TipoIdUsuarioDTO extends CoreDTO {
 	
 	public final TipoIdUsuarioDTO setNombre( String newNombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(newNombre);
+		ExceptionHandler.checkDTONullParameter(newNombre);
 		
 		this.nombre = StringTool.applyTrim(newNombre);
 		return this;

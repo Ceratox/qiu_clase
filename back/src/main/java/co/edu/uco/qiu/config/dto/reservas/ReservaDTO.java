@@ -40,7 +40,7 @@ public final class ReservaDTO extends CoreDTO {
 	
 	public final ReservaDTO setCliente( UsuarioDTO cliente )
 	{
-		ExceptionHandler.checkDtoNullParameter(cliente);
+		ExceptionHandler.checkDTONullParameter(cliente);
 		
 		this.cliente = cliente;
 		return this;
@@ -48,7 +48,7 @@ public final class ReservaDTO extends CoreDTO {
 	
 	public final ReservaDTO setDisponibilidad( DisponibilidadDTO disponibilidad )
 	{
-		ExceptionHandler.checkDtoNullParameter(disponibilidad);
+		ExceptionHandler.checkDTONullParameter(disponibilidad);
 		
 		this.disponibilidad = disponibilidad;
 		return this;
@@ -56,7 +56,7 @@ public final class ReservaDTO extends CoreDTO {
 	
 	public final ReservaDTO setTipo( TipoReservaDTO tipo )
 	{
-		ExceptionHandler.checkDtoNullParameter(tipo);
+		ExceptionHandler.checkDTONullParameter(tipo);
 		
 		this.tipo = tipo;
 		return this;
@@ -64,7 +64,7 @@ public final class ReservaDTO extends CoreDTO {
 	
 	public ReservaDTO setEstado( EstadoReservaDTO estado )
 	{
-		ExceptionHandler.checkDtoNullParameter(estado);
+		ExceptionHandler.checkDTONullParameter(estado);
 		
 		this.estado = estado;
 		return this;

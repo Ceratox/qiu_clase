@@ -25,7 +25,7 @@ public final class EstadoReservaDTO extends CoreDTO {
 	
 	public final EstadoReservaDTO setNombre( String nombre )
 	{
-		ExceptionHandler.checkDtoNullParameter(nombre);
+		ExceptionHandler.checkDTONullParameter(nombre);
 		
 		this.nombre = StringTool.applyTrim(nombre);
 		return this;
