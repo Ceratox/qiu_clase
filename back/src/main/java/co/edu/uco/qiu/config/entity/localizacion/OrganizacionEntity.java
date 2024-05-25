@@ -43,6 +43,11 @@ public final class OrganizacionEntity extends CoreEntity {
 		setVerificada(verificada);
 	}
 	
+	protected static OrganizacionEntity build()
+	{
+		return new OrganizacionEntity();
+	}
+	
 	// Setters
 	
 	public final OrganizacionEntity setTipoId( TipoIdOrganizacionEntity tipoId )

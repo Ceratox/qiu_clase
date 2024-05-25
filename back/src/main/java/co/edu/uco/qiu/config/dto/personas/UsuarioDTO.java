@@ -30,7 +30,7 @@ public final class UsuarioDTO extends CoreDTO {
 	{
 		super();
 	}
-	
+		
 	public UsuarioDTO( 
 			
 		UUID codigo, 
@@ -82,7 +82,7 @@ public final class UsuarioDTO extends CoreDTO {
 	public final UsuarioDTO setTipoId( TipoIdUsuarioDTO tipoId )
 	{
 		ExceptionHandler.checkDTONullParameter(tipoId);
-		
+			
 		this.tipoId = tipoId;
 		return this;
 	}
@@ -93,7 +93,7 @@ public final class UsuarioDTO extends CoreDTO {
 		{
 			throw new DtoQIUException("Automatically set user identificacion to 0. Sent identificacion was either negative or null.", "Automatically set user identificacion to 0. Sent identificacion was either negative or null.", null);
 		}
-		
+
 		this.identificacion = id;
 		return this;
 	}
@@ -155,7 +155,7 @@ public final class UsuarioDTO extends CoreDTO {
 	public final UsuarioDTO setContrasena( String contrasena )
 	{
 		ExceptionHandler.checkDTONullParameter(contrasena);
-		
+
 		this.contrasena = StringTool.applyTrim(contrasena);
 		return this;
 	}

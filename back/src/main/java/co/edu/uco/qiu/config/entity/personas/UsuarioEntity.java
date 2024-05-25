@@ -7,6 +7,7 @@ import co.edu.uco.qiu.config.crosscutting.exceptions.custom.DtoQIUException;
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.entity.CoreEntity;
+import co.edu.uco.qiu.config.entity.localizacion.OrganizacionEntity;
 
 public final class UsuarioEntity extends CoreEntity {
 	

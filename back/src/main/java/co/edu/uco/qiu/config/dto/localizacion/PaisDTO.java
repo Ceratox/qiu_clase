@@ -4,18 +4,21 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
-public final class PaisEntity extends CoreDTO {
+public final class PaisDTO extends CoreDTO {
 	
 	private String nombre;
 	
-	public PaisEntity()
+	public PaisDTO()
 	{
 		super();
+		setCodigo(UUIDHelper.getDefault());
+		setNombre( StringTool.EMPTY );
 	}
 	
-	public PaisEntity( final UUID codigo, final String nombre )
+	public PaisDTO( final UUID codigo, final String nombre )
 	{
 		setCodigo( codigo );
 		setNombre( nombre );
@@ -23,7 +26,7 @@ public final class PaisEntity extends CoreDTO {
 	
 	// Setters
 	
-	public final PaisEntity setNombre( String nombre )
+	public final PaisDTO setNombre( String nombre )
 	{
 		ExceptionHandler.checkDTONullParameter(nombre);
 		

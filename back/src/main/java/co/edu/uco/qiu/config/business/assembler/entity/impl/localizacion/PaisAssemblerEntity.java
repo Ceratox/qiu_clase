@@ -5,6 +5,8 @@ import co.edu.uco.qiu.config.business.domain.localizacion.PaisDomain;
 import co.edu.uco.qiu.config.entity.localizacion.PaisEntity;
 import static co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper.getObjectHelper;
 
+import java.util.List;
+
 public final class PaisAssemblerEntity implements AssemblerEntity<PaisDomain, PaisEntity> {
 	
 	private static final AssemblerEntity<PaisDomain, PaisEntity> INSTANCE = new PaisAssemblerEntity();
@@ -35,5 +37,17 @@ public final class PaisAssemblerEntity implements AssemblerEntity<PaisDomain, Pa
 				paisDomTmp.getCodigo(),
 				paisDomTmp.getNombre()
 		);
+	}
+
+	@Override
+	public List<PaisDomain> toDomain(List<PaisEntity> data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PaisEntity> toEntity(List<PaisDomain> domain) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

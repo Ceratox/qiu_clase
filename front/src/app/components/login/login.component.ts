@@ -41,7 +41,7 @@ export class LoginComponent {
   onSubmit()
   { 
     let foundUser = false;
-
+    
     for (let i=0; i<users.length && !foundUser; i++)
     {
       const currentUser = users[i];

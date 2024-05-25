@@ -2,16 +2,18 @@ package co.edu.uco.qiu.config.business.assembler.dto.impl.localizacion;
 
 import static co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper.getObjectHelper;
 
+import java.util.List;
+
 import co.edu.uco.qiu.config.business.assembler.dto.AssemblerDTO;
 import co.edu.uco.qiu.config.business.domain.localizacion.DepartamentoDomain;
 import co.edu.uco.qiu.config.business.domain.localizacion.PaisDomain;
 import co.edu.uco.qiu.config.dto.localizacion.DepartamentoDTO;
-import co.edu.uco.qiu.config.dto.localizacion.PaisEntity;
+import co.edu.uco.qiu.config.dto.localizacion.PaisDTO;
 
 public final class DepartamentoAssemblerDTO implements AssemblerDTO<DepartamentoDomain, DepartamentoDTO>{
 	
 	private static final AssemblerDTO<DepartamentoDomain, DepartamentoDTO> INSTANCE = new DepartamentoAssemblerDTO();
-	private static final AssemblerDTO<PaisDomain, PaisEntity> paisAssembler = PaisAssemblerDTO.getInstance();
+	private static final AssemblerDTO<PaisDomain, PaisDTO> paisAssembler = PaisAssemblerDTO.getInstance();
 	
 	private DepartamentoAssemblerDTO() {super();}
 	
@@ -41,5 +43,17 @@ public final class DepartamentoAssemblerDTO implements AssemblerDTO<Departamento
 				deptoDomainTmp.getNombre(), 
 				paisAssembler.toDTO(deptoDomainTmp.getPais())
 		);
+	}
+
+	@Override
+	public List<DepartamentoDomain> toDomain(List<DepartamentoDTO> data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DepartamentoDTO> toDTO(List<DepartamentoDomain> domainList) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

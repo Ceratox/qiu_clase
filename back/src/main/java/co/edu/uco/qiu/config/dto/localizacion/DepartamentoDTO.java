@@ -4,19 +4,23 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
 public final class DepartamentoDTO extends CoreDTO {
 
 	private String nombre;
-	private PaisEntity pais;
+	private PaisDTO pais;
 	
 	public DepartamentoDTO()
 	{
 		super();
+		setCodigo(UUIDHelper.getDefault());
+		setNombre( StringTool.EMPTY );
+		setPais( new PaisDTO() );
 	}
 	
-	public DepartamentoDTO( UUID code, String name, PaisEntity country )
+	public DepartamentoDTO( UUID code, String name, PaisDTO country )
 	{
 		setCodigo( code );
 		setNombre( name );
@@ -33,7 +37,7 @@ public final class DepartamentoDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final DepartamentoDTO setPais( PaisEntity pais )
+	public final DepartamentoDTO setPais( PaisDTO pais )
 	{
 		ExceptionHandler.checkDTONullParameter(pais);
 		
@@ -45,6 +49,6 @@ public final class DepartamentoDTO extends CoreDTO {
 	
 	public final String getNombre() {return this.nombre;}
 	
-	public final PaisEntity getPais() {return this.pais;}
+	public final PaisDTO getPais() {return this.pais;}
 	
 }

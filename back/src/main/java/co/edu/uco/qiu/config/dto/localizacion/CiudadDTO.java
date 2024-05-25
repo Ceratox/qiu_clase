@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
 public final class CiudadDTO extends CoreDTO {
@@ -14,6 +15,9 @@ public final class CiudadDTO extends CoreDTO {
 	public CiudadDTO()
 	{
 		super();
+		setCodigo(UUIDHelper.getDefault());
+		setNombre( StringTool.EMPTY );
+		setDepartamento( new DepartamentoDTO() );
 	}
 	
 	public CiudadDTO( UUID codigo, String nombre, DepartamentoDTO departamento )

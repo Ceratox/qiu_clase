@@ -31,8 +31,7 @@ public final class UUIDHelper {
 		return UUID.randomUUID();
 	}
 	
-	public static void main(String[] args) {
-		
-		System.out.println(UUID.randomUUID());
+	public static final boolean isDefault(final UUID value) {
+		return getDefault(value, getDefault()).equals(getDefault());
 	}
 }

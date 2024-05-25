@@ -8,6 +8,8 @@ import co.edu.uco.qiu.config.entity.localizacion.DepartamentoEntity;
 
 import static co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper.getObjectHelper;
 
+import java.util.List;
+
 public final class DepartamentoAssemblerEntity implements AssemblerEntity<DepartamentoDomain, DepartamentoEntity> {
 	
 	private static final AssemblerEntity<DepartamentoDomain, DepartamentoEntity> INSTANCE = new DepartamentoAssemblerEntity();
@@ -41,5 +43,17 @@ public final class DepartamentoAssemblerEntity implements AssemblerEntity<Depart
 				deptoDomTmp.getNombre(),
 				paisAssembler.toEntity(deptoDomTmp.getPais())
 		);
+	}
+
+	@Override
+	public List<DepartamentoDomain> toDomain(List<DepartamentoEntity> data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DepartamentoEntity> toEntity(List<DepartamentoDomain> domain) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

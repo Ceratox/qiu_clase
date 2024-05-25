@@ -3,10 +3,14 @@ package co.edu.uco.qiu.config.business.assembler.entity.impl.localizacion;
 import co.edu.uco.qiu.config.business.assembler.entity.AssemblerEntity;
 import co.edu.uco.qiu.config.business.domain.localizacion.CiudadDomain;
 import co.edu.uco.qiu.config.business.domain.localizacion.DepartamentoDomain;
+import co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.qiu.config.entity.localizacion.CiudadEntity;
 import co.edu.uco.qiu.config.entity.localizacion.DepartamentoEntity;
 
 import static co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper.getObjectHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class CiudadAssemblerEntity implements AssemblerEntity<CiudadDomain, CiudadEntity> {
 	
@@ -24,10 +28,18 @@ public final class CiudadAssemblerEntity implements AssemblerEntity<CiudadDomain
 		
 		return CiudadDomain.build(
 				
-				ciudadEntityTmp.getCodigo(),
-				ciudadEntityTmp.getNombre(),
-				deptoAssembler.toDomain(ciudadEntityTmp.getDepartamento())
+			ciudadEntityTmp.getCodigo(),
+			ciudadEntityTmp.getNombre(),
+			deptoAssembler.toDomain(ciudadEntityTmp.getDepartamento())
 		);
+	}
+	
+	@Override
+	public final List<CiudadDomain> toDomain(final List<CiudadEntity> ciudades) {
+		
+		var ciudadesEnities = ObjectHelper.getObjectHelper().getDefaultValue(ciudades, new ArrayList<CiudadEntity>());
+		
+		return ciudadesEnities.stream().map(this::toDomain).toList();
 	}
 
 	@Override
@@ -37,9 +49,17 @@ public final class CiudadAssemblerEntity implements AssemblerEntity<CiudadDomain
 		
 		return new CiudadEntity(
 				
-				ciudadDomTmp.getCodigo(),
-				ciudadDomTmp.getNombre(),
-				deptoAssembler.toEntity(ciudadDomTmp.getDepartamento())
+			ciudadDomTmp.getCodigo(),
+			ciudadDomTmp.getNombre(),
+			deptoAssembler.toEntity(ciudadDomTmp.getDepartamento())
 		);
+	}
+
+	@Override
+	public List<CiudadEntity> toEntity(List<CiudadDomain> ciudades) {
+		
+		var ciudadesDomain = ObjectHelper.getObjectHelper().getDefaultValue(ciudades, new ArrayList<CiudadDomain>());
+		
+		return ciudadesDomain.stream().map(this::toEntity).toList();
 	}
 }

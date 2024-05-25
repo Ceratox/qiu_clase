@@ -1,8 +1,8 @@
 package co.edu.uco.qiu.config.business.usecase.impl.ciudad;
 
+import java.util.List;
 import java.util.UUID;
 
-import co.edu.uco.qiu.config.business.assembler.entity.impl.localizacion.CiudadAssemblerEntity;
 import co.edu.uco.qiu.config.business.assembler.entity.impl.localizacion.DepartamentoAssemblerEntity;
 import co.edu.uco.qiu.config.business.domain.localizacion.CiudadDomain;
 import co.edu.uco.qiu.config.business.usecase.UseCaseNoReturn;
@@ -47,31 +47,53 @@ public final class RegistrarCiudad implements UseCaseNoReturn<CiudadDomain> {
 		return codigo;
 	}
 	
-	private final void validateSimilaridadCiudadDepartamento(final String nombreCiudad, final String departamento, UUID idDepto)
+	private final void validarSimilaridadCiudadDepartamento(final String nombreCiudad, final UUID deptoId)
 	{
-		CiudadEntity ciudadEnt = new CiudadEntity(UUIDHelper.getDefault(), nombreCiudad, new DepartamentoEntity());
+		CiudadEntity ciudadEnt = ((CiudadEntity)new CiudadEntity().setCodigo(UUIDHelper.getDefault())).setNombre(nombreCiudad).setDepartamento(
 				
-		var result = factory.getCiudadDAO().retrieve(ciudadEnt);
+			(DepartamentoEntity)(new DepartamentoEntity().setCodigo(deptoId))
+		);
+				
+		List<CiudadEntity> result = factory.getCiudadDAO().retrieve(ciudadEnt);
+		
+		if (!result.isEmpty())
+		{
+			String userMessage = StringTool.replaceParams("Ya existe una ciudad con el nombre ({0}) asociada al departamento cuyo UUID es {1}.", nombreCiudad, deptoId.toString());
+			String technicalMessage = StringTool.replaceParams("Ya existe una ciudad con el nombre ({0}) asociada al departamento cuyo UUID es {1}.", nombreCiudad, deptoId.toString());
+			
+			throw new BusinessQIUException(technicalMessage, userMessage, null);
+		}
+	}
+	
+	private final void validateDepartamentoExistance(final UUID deptoId)
+	{
+		List<DepartamentoEntity> result = factory.getDepartamentoDAO().retrieve( (DepartamentoEntity)new DepartamentoEntity().setCodigo(deptoId) );
 		
 		if (result.isEmpty())
 		{
+			String userMessage = StringTool.replaceParams("No se pudo validar existencia de un departamento con UUID {0}", deptoId.toString());
+			String technicalMessage = StringTool.replaceParams("No se pudo validar existencia de un departamento con UUID {0}", deptoId.toString());
 			
-		}
-		else
-		{
-			String userMessage = "Ya existe una ciudad con el mismo nombre ({0}) y departamento ({1}).";
-			
-			throw new BusinessQIUException(userMessage, userMessage, null);
+			throw new BusinessQIUException(technicalMessage, userMessage, null);
 		}
 	}
 
 	@Override
-	public final void execute(CiudadDomain data) {
+	public final void execute(CiudadDomain ciudad) {
 		
 		// 1. Validar que los datos requeridos por el case de uso sean correctos según las especificaciones establecidas
+		validateDepartamentoExistance(ciudad.getDepartamento().getCodigo());
+		
 		// 2. Validar que no exista otra ciudad con el mismo nombre y departamento
+		validarSimilaridadCiudadDepartamento(ciudad.getNombre(), ciudad.getDepartamento().getCodigo());
+		
 		// 3. Validar que no exista otra ciudad con el mismo código
-		CiudadEntity ciudadEnt = new CiudadEntity(generateCiudadUUID(), data.getNombre(), DepartamentoAssemblerEntity.getInstance().toEntity(data.getDepartamento()));
+		CiudadEntity ciudadEnt = (CiudadEntity)new CiudadEntity().setCodigo(generateCiudadUUID());
+		ciudadEnt.setNombre(ciudad.getNombre()).setDepartamento(
+				
+			DepartamentoAssemblerEntity.getInstance().toEntity(ciudad.getDepartamento())
+		);
+		
 		// Guardar la ciudad
 		factory.getCiudadDAO().create(ciudadEnt);
 	}

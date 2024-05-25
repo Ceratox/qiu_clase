@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.entity.CoreEntity;
 
 public final class CiudadEntity extends CoreEntity {
@@ -14,6 +15,9 @@ public final class CiudadEntity extends CoreEntity {
 	public CiudadEntity()
 	{
 		super();
+		setCodigo(UUIDHelper.getDefault());
+		setNombre(StringTool.EMPTY);
+		setDepartamento(new DepartamentoEntity());
 	}
 	
 	public CiudadEntity( UUID codigo, String nombre, DepartamentoEntity departamento )
