@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.dto.CoreDTO;
-import co.edu.uco.qiu.config.dto.disponiblidad.DisponibilidadDTO;
 import co.edu.uco.qiu.config.dto.personas.UsuarioDTO;
+import co.edu.uco.qiu.config.dto.servicios.DisponibilidadDTO;
 
 public final class ReservaDTO extends CoreDTO {
 	

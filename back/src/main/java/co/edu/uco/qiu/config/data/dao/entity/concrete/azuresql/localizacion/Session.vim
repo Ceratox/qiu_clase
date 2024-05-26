@@ -4,7 +4,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/Projects/Programming/qiu/back/src/main/java/co/edu/uco/qiu/config/dto/personas
+cd ~/Projects/Programming/qiu/back/src/main/java/co/edu/uco/qiu/config/data/dao/entity/concrete/azuresql/localizacion
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -14,11 +14,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +0 UsuarioDTO.java
+badd +0 CiudadAzureSqlDAO.java
 argglobal
 %argdel
-$argadd UsuarioDTO.java
-edit UsuarioDTO.java
+$argadd CiudadAzureSqlDAO.java
+edit CiudadAzureSqlDAO.java
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -30,11 +30,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 24) / 49)
+let s:l = 64 - ((7 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 64
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0

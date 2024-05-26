@@ -17,5 +17,4 @@ public class CoreDTO {
 	}
 	
 	public final UUID getCodigo() { return this.codigo; }
-
 }

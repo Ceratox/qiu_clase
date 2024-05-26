@@ -1,6 +1,5 @@
 package co.edu.uco.qiu.config.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -15,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uco.qiu.config.business.facade.impl.ciudad.ConsultarCiudadesFacade;
+import co.edu.uco.qiu.config.business.facade.impl.ciudad.EliminarCiudadFacade;
+import co.edu.uco.qiu.config.business.facade.impl.ciudad.ModificarCiudadesFacade;
 import co.edu.uco.qiu.config.business.facade.impl.ciudad.RegistrarCiudadFacade;
 import co.edu.uco.qiu.config.controller.response.CiudadResponse;
 import co.edu.uco.qiu.config.crosscutting.exceptions.QIUException;
-import co.edu.uco.qiu.config.dto.localizacion.CiudadDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.CiudadDTO;
 
 @RestController
 @RequestMapping("api/v1/ciudades")
@@ -98,9 +99,9 @@ public final class CiudadController {
 		try 
 		{
 			ciudad.setCodigo(id);
-			// var facade = new ModificarCiudadFacade();
-			//facade.execute(id);
-			ciudadResponse.getMensajes().add("Ciudad eliminada con éxito.");
+			var facade = new ModificarCiudadesFacade();
+			facade.execute(ciudad);
+			ciudadResponse.getMensajes().add("Ciudad modificada con éxito.");
 		} 
 		catch (QIUException qe) {
 			
@@ -111,7 +112,7 @@ public final class CiudadController {
 		catch (Exception e)
 		{
 			httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR;
-			var userMessage = "Se ha presentado un problema eliminando la información de la nueva ciudad.";
+			var userMessage = "Se ha presentado un problema modificando la información de la ciudad.";
 			ciudadResponse.getMensajes().add(userMessage);
 			e.printStackTrace();
 		}
@@ -127,8 +128,8 @@ public final class CiudadController {
 		
 		try 
 		{
-			// var facade = new EliminarCiudadFacade();
-			//facade.execute(id);
+			var facade = new EliminarCiudadFacade();
+			facade.execute((CiudadDTO)new CiudadDTO().setCodigo(id));
 			ciudadResponse.getMensajes().add("Ciudades eliminada con éxito.");
 		} 
 		catch (QIUException qe) {

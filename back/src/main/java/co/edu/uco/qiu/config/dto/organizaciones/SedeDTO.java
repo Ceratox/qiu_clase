@@ -1,4 +1,4 @@
-package co.edu.uco.qiu.config.dto.localizacion;
+package co.edu.uco.qiu.config.dto.organizaciones;
 
 import java.util.UUID;
 

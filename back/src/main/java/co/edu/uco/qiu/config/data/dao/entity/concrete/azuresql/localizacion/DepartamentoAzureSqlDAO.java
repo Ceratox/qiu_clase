@@ -18,9 +18,6 @@ import co.edu.uco.qiu.config.entity.localizacion.PaisEntity;
 
 public class DepartamentoAzureSqlDAO extends SqlConnection implements DepartamentoDAO {
 	
-	private static final String TABLE = "departamento";
-	private static final String[] UNIQUE_FIELDS = {"id", "nombre", "pais"};
-	
 	public DepartamentoAzureSqlDAO( Connection connection )
 	{
 		super(connection);
@@ -37,61 +34,63 @@ public class DepartamentoAzureSqlDAO extends SqlConnection implements Departamen
 		{
 			sqlSentence.append(
 					
-					"SELECT * FROM departamento d" +
+					"SELECT * FROM departamento d " +
 					"JOIN pais p ON d.pais = p.id"
 			);
 		}
 		else
 		{
-			sqlSentence.append("SELECT * FROM " + TABLE + " WHERE ");
+			sqlSentence.append(
+					
+				"SELECT d.id depto_cod, d.nombre depto_nom, p.id pais_cod, p.nombre pais_nom FROM departamento d " +
+				"JOIN pais p ON d.pais = p.id " +
+				"WHERE d.id = ? AND d.nombre = ? AND d.pais = ?"
+					
+			);
 			
-			for (int i=0; i<UNIQUE_FIELDS.length; i++)
-			{
-				sqlSentence.append(UNIQUE_FIELDS[i] + " = ?");
-				if (i < UNIQUE_FIELDS.length - 1)
-				{
-					sqlSentence.append(" AND ");
-				}
-			}
 		}
 		
 		try (final PreparedStatement preparedSqlStatement = getConnection().prepareStatement(sqlSentence.toString()))
 		{
-			if (UUIDHelper.isDefault(data.getCodigo()))
+			if (!UUIDHelper.isDefault(data.getCodigo()))
 			{
 				preparedSqlStatement.setObject(1, data.getCodigo());
 				preparedSqlStatement.setString(2, data.getNombre());
+				preparedSqlStatement.setObject(3, data.getPais().getCodigo());
 			}
 			
 			ResultSet resultSet = preparedSqlStatement.executeQuery();	
 			
 			while (resultSet.next())
 			{
+				System.out.println(resultSet.getString("depto_nom"));
 				deptos.add( new DepartamentoEntity( 
 						
-					UUID.fromString(Integer.toString(resultSet.getInt("id"))),
-					resultSet.getString("nombre"),
-					(PaisEntity)resultSet.getObject("pais")
+					UUID.fromString(resultSet.getObject("depto_cod").toString()),
+					resultSet.getString("depto_nom"),
+					(PaisEntity)new PaisEntity().setCodigo(UUID.fromString(resultSet.getObject("pais_cod").toString()))
 					
 				));
 			}
+			
+			System.out.println(deptos.isEmpty());
+			
+			return deptos;
 		}
 		catch (SQLException exception)
 		
 		{
-			var mensajeUsuario = StringTool.replaceParams("Se ha presentado un problema tratando de crear la ciudad \"{0}\".", data.getNombre());
-			var mensajeTecnico = StringTool.replaceParams("Se ha presentado una excepción (SQLException) tratando de insertar la ciudad \"{0}\" en la tabla \"Ciudad\" de la base de datos AzureSQL.", data.getNombre());
+			var mensajeUsuario = StringTool.replaceParams("Se ha presentado un problema tratando de obtner el departamento \"{0}\".", data.getNombre());
+			var mensajeTecnico = StringTool.replaceParams("Se ha presentado una excepción (SQLException) tratando de obtener el departamento \"{0}\" en la tabla \"Departamento\" de la base de datos AzureSQL.", data.getNombre());
 
 			throw new DataQIUException(mensajeTecnico, mensajeUsuario, exception);
 		}
 		catch (Exception exception)
 		{
-			var mensajeUsuario = StringTool.replaceParams("Se ha presentado un problema tratando de crear la ciudad \"{0}\".", data.getNombre());
-			var mensajeTecnico = StringTool.replaceParams("Se ha presentado una excepción **INESPERADA** (Exception) tratando de insertar la ciudad \"{0}\" en la tabla \"Ciudad\" de la base de datos AzureSQL.", data.getNombre());
+			var mensajeUsuario = StringTool.replaceParams("Se ha presentado un problema tratando de obtner el departamento \\\"{0}\\\".", data.getNombre());
+			var mensajeTecnico = StringTool.replaceParams("Se ha presentado una excepción **INESPERADA** (Exception) tratando de obtner el departamento \"{0}\" en la tabla \"Departamento\" de la base de datos AzureSQL.", data.getNombre());
 
 			throw new DataQIUException(mensajeTecnico, mensajeUsuario, exception);
 		}
-		
-		return deptos;
 	}
 }

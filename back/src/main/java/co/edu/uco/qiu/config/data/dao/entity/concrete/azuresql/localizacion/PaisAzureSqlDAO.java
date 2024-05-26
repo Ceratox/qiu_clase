@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.exceptions.custom.DataQIUException;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
+import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.data.dao.entity.PaisDAO;
 import co.edu.uco.qiu.config.data.dao.entity.concrete.SqlConnection;
 import co.edu.uco.qiu.config.entity.localizacion.PaisEntity;
@@ -30,19 +31,29 @@ public class PaisAzureSqlDAO extends SqlConnection implements PaisDAO {
 		final StringBuilder sqlSentence = new StringBuilder();
 		sqlSentence.append("SELECT * FROM " + TABLE + " WHERE ");
 		
-		for (int i=0; i<UNIQUE_FIELDS.length; i++)
+		if (UUIDHelper.isDefault(data.getCodigo()))
 		{
-			sqlSentence.append(UNIQUE_FIELDS[i] + " = ?");
-			if (i < UNIQUE_FIELDS.length - 1)
+			sqlSentence.append("SELECT * FROM pais");
+		}
+		else
+		{
+			for (int i=0; i<UNIQUE_FIELDS.length; i++)
 			{
-				sqlSentence.append(" AND ");
+				sqlSentence.append(UNIQUE_FIELDS[i] + " = ?");
+				if (i < UNIQUE_FIELDS.length - 1)
+				{
+					sqlSentence.append(" AND ");
+				}
 			}
 		}
 		
 		try (final PreparedStatement preparedSqlStatement = getConnection().prepareStatement(sqlSentence.toString()))
 		{
-			preparedSqlStatement.setObject(1, data.getCodigo());
-			preparedSqlStatement.setString(2, data.getNombre());
+			if (!UUIDHelper.isDefault(data.getCodigo()))
+			{
+				preparedSqlStatement.setObject(1, data.getCodigo());
+				preparedSqlStatement.setString(2, data.getNombre());
+			}
 			
 			ResultSet resultSet = preparedSqlStatement.executeQuery();
 			List<PaisEntity> paises = new ArrayList<>();

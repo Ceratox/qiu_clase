@@ -1,4 +1,4 @@
-package co.edu.uco.qiu.config.dto.localizacion;
+package co.edu.uco.qiu.config.dto.organizaciones;
 
 import java.util.UUID;
 
@@ -7,29 +7,26 @@ import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
 import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.dto.CoreDTO;
 
-public final class CiudadDTO extends CoreDTO {
+public final class PaisDTO extends CoreDTO {
 	
 	private String nombre;
-	private DepartamentoDTO departamento;
 	
-	public CiudadDTO()
+	public PaisDTO()
 	{
 		super();
 		setCodigo(UUIDHelper.getDefault());
 		setNombre( StringTool.EMPTY );
-		setDepartamento( new DepartamentoDTO() );
 	}
 	
-	public CiudadDTO( UUID codigo, String nombre, DepartamentoDTO departamento )
+	public PaisDTO( final UUID codigo, final String nombre )
 	{
 		setCodigo( codigo );
 		setNombre( nombre );
-		setDepartamento( departamento );
 	}
 	
 	// Setters
 	
-	public final CiudadDTO setNombre( String nombre )
+	public final PaisDTO setNombre( String nombre )
 	{
 		ExceptionHandler.checkDTONullParameter(nombre);
 		
@@ -37,18 +34,8 @@ public final class CiudadDTO extends CoreDTO {
 		return this;
 	}
 	
-	public final CiudadDTO setDepartamento( DepartamentoDTO departamento )
-	{
-		ExceptionHandler.checkDTONullParameter(departamento);
-		
-		this.departamento = departamento;
-		return this;
-	}
-	
 	// Getters
 	
 	public final String getNombre() {return this.nombre;}
-	
-	public final DepartamentoDTO getDepartamento() {return this.departamento;}
 
 }

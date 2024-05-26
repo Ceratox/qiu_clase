@@ -9,8 +9,8 @@ import co.edu.uco.qiu.config.business.assembler.dto.AssemblerDTO;
 import co.edu.uco.qiu.config.business.domain.localizacion.CiudadDomain;
 import co.edu.uco.qiu.config.business.domain.localizacion.DepartamentoDomain;
 import co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper;
-import co.edu.uco.qiu.config.dto.localizacion.CiudadDTO;
-import co.edu.uco.qiu.config.dto.localizacion.DepartamentoDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.CiudadDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.DepartamentoDTO;
 
 public final class CiudadAssemblerDTO implements AssemblerDTO<CiudadDomain, CiudadDTO>{
 	

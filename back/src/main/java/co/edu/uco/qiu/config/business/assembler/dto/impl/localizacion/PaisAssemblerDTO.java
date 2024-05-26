@@ -2,11 +2,11 @@ package co.edu.uco.qiu.config.business.assembler.dto.impl.localizacion;
 
 import co.edu.uco.qiu.config.business.assembler.dto.AssemblerDTO;
 import co.edu.uco.qiu.config.business.domain.localizacion.PaisDomain;
+import co.edu.uco.qiu.config.dto.organizaciones.PaisDTO;
+
 import static co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper.getObjectHelper;
 
 import java.util.List;
-
-import co.edu.uco.qiu.config.dto.localizacion.PaisDTO;
 
 public final class PaisAssemblerDTO implements AssemblerDTO<PaisDomain, PaisDTO>{
 	

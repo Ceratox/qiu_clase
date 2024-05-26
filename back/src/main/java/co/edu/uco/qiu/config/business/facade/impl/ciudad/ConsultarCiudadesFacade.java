@@ -8,7 +8,7 @@ import co.edu.uco.qiu.config.business.usecase.impl.ciudad.ConsultarCiudades;
 import co.edu.uco.qiu.config.crosscutting.exceptions.QIUException;
 import co.edu.uco.qiu.config.crosscutting.exceptions.custom.BusinessQIUException;
 import co.edu.uco.qiu.config.data.dao.factory.DAOFactory;
-import co.edu.uco.qiu.config.dto.localizacion.CiudadDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.CiudadDTO;
 
 public final class ConsultarCiudadesFacade implements FacadeWithReturn<CiudadDTO, List<CiudadDTO>> {
 	

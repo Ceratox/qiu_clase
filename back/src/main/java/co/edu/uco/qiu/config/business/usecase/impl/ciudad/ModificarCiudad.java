@@ -9,42 +9,25 @@ import co.edu.uco.qiu.config.business.usecase.UseCaseNoReturn;
 import co.edu.uco.qiu.config.crosscutting.exceptions.custom.BusinessQIUException;
 import co.edu.uco.qiu.config.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.qiu.config.crosscutting.helpers.StringTool;
-import co.edu.uco.qiu.config.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.qiu.config.data.dao.factory.DAOFactory;
 import co.edu.uco.qiu.config.entity.localizacion.CiudadEntity;
 import co.edu.uco.qiu.config.entity.localizacion.DepartamentoEntity;
 
-public final class RegistrarCiudad implements UseCaseNoReturn<CiudadDomain> {
-
-	private DAOFactory factory;
+public class ModificarCiudad implements UseCaseNoReturn<CiudadDomain> {
 	
-	public RegistrarCiudad( final DAOFactory factory ) {
+	private DAOFactory factory;
+
+	public ModificarCiudad( final DAOFactory factory ) {
 		
 		if (ObjectHelper.getObjectHelper().isNull(factory))
 		{
-			String userMessage = "Se ha presentado un problema registrando la ciudad.";
-			String technicalMessage = "El DAOFactory para crear la ciudad llegó nulo.";
+			String userMessage = "Se ha presentado un problema modificando la ciudad.";
+			String technicalMessage = "El DAOFactory para modificar la ciudad llegó nulo.";
 			
 			throw new BusinessQIUException(technicalMessage, userMessage, null);
 		}
 		
 		this.factory = factory;
-	}
-	
-	private final UUID generateCiudadUUID()
-	{
-		UUID codigo = UUIDHelper.generate();
-		boolean codigoExists = true;
-		
-		while (codigoExists)
-		{
-			codigo = UUIDHelper.generate();
-			CiudadEntity ciudadEnt = new CiudadEntity(codigo, StringTool.EMPTY, new DepartamentoEntity());
-			var result = factory.getCiudadDAO().retrieve(ciudadEnt);
-			codigoExists = !result.isEmpty();
-		}
-		
-		return codigo;
 	}
 	
 	private final void validarSimilaridadCiudadDepartamento(final UUID codigoCiudad, final String nombreCiudad, final UUID deptoId)
@@ -87,18 +70,18 @@ public final class RegistrarCiudad implements UseCaseNoReturn<CiudadDomain> {
 		
 		// 1. Validar que los datos requeridos por el case de uso sean correctos según las especificaciones establecidas
 		validateDepartamentoExistance(DepartamentoAssemblerEntity.getInstance().toEntity(ciudad.getDepartamento()));
-
+		
 		// 2. Validar que no exista otra ciudad con el mismo nombre y departamento
 		validarSimilaridadCiudadDepartamento(ciudad.getCodigo(), ciudad.getNombre(), ciudad.getDepartamento().getCodigo());
 		
 		// 3. Validar que no exista otra ciudad con el mismo código
-		CiudadEntity ciudadEnt = (CiudadEntity)new CiudadEntity().setCodigo(generateCiudadUUID());
+		CiudadEntity ciudadEnt = (CiudadEntity)new CiudadEntity().setCodigo(ciudad.getCodigo());
 		ciudadEnt.setNombre(ciudad.getNombre()).setDepartamento(
 				
 			DepartamentoAssemblerEntity.getInstance().toEntity(ciudad.getDepartamento())
 		);
 		
 		// Guardar la ciudad
-		factory.getCiudadDAO().create(ciudadEnt);
+		factory.getCiudadDAO().update(ciudadEnt);
 	}
 }

@@ -7,8 +7,8 @@ import java.util.List;
 import co.edu.uco.qiu.config.business.assembler.dto.AssemblerDTO;
 import co.edu.uco.qiu.config.business.domain.localizacion.DepartamentoDomain;
 import co.edu.uco.qiu.config.business.domain.localizacion.PaisDomain;
-import co.edu.uco.qiu.config.dto.localizacion.DepartamentoDTO;
-import co.edu.uco.qiu.config.dto.localizacion.PaisDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.DepartamentoDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.PaisDTO;
 
 public final class DepartamentoAssemblerDTO implements AssemblerDTO<DepartamentoDomain, DepartamentoDTO>{
 	

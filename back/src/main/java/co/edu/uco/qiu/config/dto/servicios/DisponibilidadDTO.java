@@ -1,4 +1,4 @@
-package co.edu.uco.qiu.config.dto.disponiblidad;
+package co.edu.uco.qiu.config.dto.servicios;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import co.edu.uco.qiu.config.crosscutting.helpers.ExceptionHandler;
 import co.edu.uco.qiu.config.dto.CoreDTO;
-import co.edu.uco.qiu.config.dto.localizacion.ModuloDTO;
+import co.edu.uco.qiu.config.dto.organizaciones.ModuloDTO;
 import co.edu.uco.qiu.config.dto.personas.UsuarioDTO;
 
 public final class DisponibilidadDTO extends CoreDTO {

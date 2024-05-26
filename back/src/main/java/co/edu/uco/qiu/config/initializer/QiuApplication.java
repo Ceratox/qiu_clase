@@ -11,5 +11,4 @@ public class QiuApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(QiuApplication.class, args);
 	}
-
 }
